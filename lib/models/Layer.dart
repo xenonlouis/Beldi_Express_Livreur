@@ -7,39 +7,33 @@ class Layer {
     required this.options,
   });
 
+
   Map<String, dynamic> toMap() {
     return {
       'layerName': layerName,
-      'options': options
-          .map((option) => option.toMap())
-          .toList(), // Convert each option to a map
+      'options': options.map((option) => option.toMap()).toList(), // Convert each option to a map
     };
   }
-
   factory Layer.fromMap(Map<String, dynamic> map) {
     return Layer(
       // Initialize properties from map
       layerName: map['layerName'],
-      options: (map['options'] as List<Map<String, dynamic>>)
-          .map((optionMap) => Option.fromMap(optionMap))
-          .toList(),
+      options: (map['options'] as List<Map<String, dynamic>>).map((optionMap) => Option.fromMap(optionMap)).toList(),
     );
   }
 
   factory Layer.fromJson(Map<String, dynamic> json) {
     return Layer(
       layerName: json['layerName'],
-      options: (json['options'] as List<dynamic>)
-          .map((optionJson) => Option.fromJson(optionJson))
-          .toList(),
+      options: (json['options'] as List<dynamic>).map((optionJson) => Option.fromJson(optionJson)).toList(),
       // Convert each option JSON to an Option object
     );
   }
 }
 
 class Option {
-  late String optionName;
-  late double price;
+  late  String optionName;
+  late  double price;
 
   Option({
     required this.optionName,
@@ -54,14 +48,12 @@ class Option {
       price: price ?? this.price,
     );
   }
-
   Map<String, dynamic> toMap() {
     return {
       'optionName': optionName,
       'price': price,
     };
   }
-
   factory Option.fromMap(Map<String, dynamic> map) {
     return Option(
       optionName: map['optionName'],
@@ -71,10 +63,7 @@ class Option {
   factory Option.fromJson(Map<String, dynamic> json) {
     return Option(
       optionName: json['optionName'],
-      price: (json['price'] is int)
-          ? (json['price'] as int).toDouble()
-          : json[
-              'price'], // assuming json['price'] is double // Convert string to double
+      price: json['price'].toDouble(),
     );
   }
 }

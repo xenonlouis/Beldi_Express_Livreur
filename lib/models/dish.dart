@@ -1,28 +1,24 @@
 import 'Layer.dart';
 
 class Dish {
-  late String? id;
-  late String? idfournisseur;
-  late String name;
-  late String description;
-  late double price;
-  late List<String> ingredients;
-  late String imageUrl;
-  late List<Layer> layers;
-  late double rating; // Added rating attribute
-  late int quantity = 1;
+  late  String? id;
+  late  String? idfournisseur;
+  late  String name;
+  late  String description;
+  late  double price;
+  late  List<String> ingredients;
+  late  String imageUrl; // Added imageUrl field
+  late  List<Layer> layers; // Changed layers to List<Layer>
 
   Dish({
-     this.id,
+    required this.id,
     required this.name,
     required this.description,
     required this.price,
     required this.ingredients,
-    required this.imageUrl,
-    required this.layers,
-    required this.rating, // Initialize rating
+    required this.imageUrl, // Initialize imageUrl
+    required this.layers, // Initialize layers
     this.idfournisseur,
-    this.quantity=1,
   });
 
   Map<String, dynamic> toMap() {
@@ -33,24 +29,10 @@ class Dish {
       'ingredients': ingredients,
       'imageUrl': imageUrl,
       'layers': layers.map((layer) => layer.toMap()).toList(),
-      'rating': rating,
       'idfournisseur': idfournisseur,
     };
   }
-  Map<String, dynamic> toCart() {
-    return {
-      'id' : id,
-      'name': name,
-      'description': description,
-      'price': price,
-      'ingredients': ingredients,
-      'imageUrl': imageUrl,
-      'layers': layers.map((layer) => layer.toMap()).toList(),
-      'rating': rating,
-      'idfournisseur': idfournisseur,
-      'quantity': quantity,
-    };
-  }
+
   factory Dish.fromJson(Map<String, dynamic> json) {
     return Dish(
       id: json['id'],
@@ -60,8 +42,8 @@ class Dish {
       ingredients: List<String>.from(json['ingredients']),
       imageUrl: json['imageUrl'],
       layers: (json['layers'] as List<dynamic>).map((layerJson) => Layer.fromJson(layerJson)).toList(),
-      rating: json['rating'].toDouble(), // Parse rating from JSON
-      idfournisseur: json['idfournisseur'],
+        idfournisseur:json['idfournisseur'],
+      // Convert each layer JSON to a Layer object
     );
   }
 
@@ -73,9 +55,7 @@ class Dish {
     List<String>? ingredients,
     String? imageUrl,
     List<Layer>? layers,
-    double? rating,
     String? idfournisseur,
-    int ? quantity
   }) {
     return Dish(
       id: id ?? this.id,
@@ -85,9 +65,8 @@ class Dish {
       ingredients: ingredients ?? this.ingredients,
       imageUrl: imageUrl ?? this.imageUrl,
       layers: layers ?? this.layers,
-      rating: rating ?? this.rating,
       idfournisseur: idfournisseur ?? this.idfournisseur,
-      quantity: quantity ?? this.quantity
     );
   }
 }
+

@@ -1,24 +1,13 @@
 
-import 'package:dish_list/services/ClientAuth.dart';
-import 'package:dish_list/services/ClientService.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:dish_list/services/FirebaseServices.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'Models/cart_model.dart';
-import 'NavRoot.dart';
-import 'Pages/ChangeEmail.dart';
-import 'Pages/Changepassword.dart';
-import 'Pages/ForgotPassword.dart';
-import 'Pages/ModifyProfile.dart';
-import 'Pages/Register.dart';
-import 'Pages/Sign_in.dart';
-import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+import 'AuthenticationWrapper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -27,29 +16,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (context) => CartModel()),
-          ChangeNotifierProvider(create: (context) => ClientService()),
-          ChangeNotifierProvider(create: (context) => UserProfileProvider()),
-        ],
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Firebase Auth',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: SignInScreen(),
-          routes: {
-            '/home': (context) => NavRoot(),
-            '/sign-in': (context) => SignInScreen(),
-            '/register': (context) => RegisterPage(),
-            '/modify-profile': (context) => ModifyProfilePage(),
-            '/change-password': (context) => ChangePasswordPage(),
-            '/change-email': (context) => ChangeEmailPage(),
-            '/forgot-password': (context) => ForgotPasswordPage(),
-            // other routes...
-          },
-        ));
+    return MaterialApp(
+      title: 'Flutter Firebase Auth',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: WillPopScope(
+        onWillPop: () async {
+
+          print("ooooooooooooooooouuuuuuuuuuut");
+          FirebaseServices().signOut();
+
+          return true;
+        },
+        child: AuthenticationWrapper(),
+      ),
+    );
   }
 }

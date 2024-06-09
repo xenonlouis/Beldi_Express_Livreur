@@ -16,7 +16,7 @@ class FirebaseServices {
       String uuid = userCredential.user!.uid;
       await _usersCollection
           .doc(uuid)
-          .set({'name': name, 'email': email, 'phone': phone});
+          .set({'name': name, 'email': email, 'phone': phone, 'reg': reg});
       uid = uuid;
       return userCredential.user;
     } catch (e) {
@@ -36,7 +36,7 @@ class FirebaseServices {
           await _usersCollection.doc(userCredential.user!.uid).get();
       if (!userDoc.exists) {
         print("bad credentials");
-        //throw FirebaseAuthException(a
+        //throw FirebaseAuthException(
         //  code: 'user-not-found',
         //message: 'No user found with this email. Please register first.');
       }
