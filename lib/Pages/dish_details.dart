@@ -1,10 +1,12 @@
-import 'package:client_app/Models/Layer.dart';
-import 'package:client_app/Models/cart_model.dart';
-import 'package:client_app/Models/dish.dart';
-import 'package:client_app/services/FirebaseServices.dart';
-import 'package:client_app/services/firestore.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../Models/Layer.dart';
+import '../Models/cart_model.dart';
+import '../Models/dish.dart';
+import '../services/FirebaseServices.dart';
+import '../services/firestore.dart';
 
 // ignore: must_be_immutable
 class DishDetailsPage extends StatefulWidget {

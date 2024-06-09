@@ -1,8 +1,8 @@
 import 'dart:async';
-import 'package:client_app/Models/client.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:dish_list/Models/client.dart';
 
 class UserProfileProvider with ChangeNotifier {
   late Client _userProfile;

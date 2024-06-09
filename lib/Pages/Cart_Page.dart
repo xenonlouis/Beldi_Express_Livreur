@@ -1,4 +1,3 @@
-import 'package:client_app/services/FirebaseServices.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -7,6 +6,7 @@ import '../Models/Layer.dart';
 import '../Models/cart_model.dart';
 import '../Models/dish.dart';
 import '../Models/dishDTO.dart';
+import '../services/FirebaseServices.dart';
 import 'dish_details.dart';
 
 class CartPage extends StatefulWidget {

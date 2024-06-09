@@ -1,10 +1,10 @@
 
-import 'package:client_app/Pages/ProfilePage.dart';
 import 'package:flutter/material.dart';
 
 import 'Pages/Cart_Page.dart';
 import 'Pages/CommandsPage.dart';
 import 'Pages/HomeScreen.dart';
+import 'Pages/ProfilePage.dart';
 import 'Pages/search_page.dart';
 
 class NavRoot extends StatefulWidget {

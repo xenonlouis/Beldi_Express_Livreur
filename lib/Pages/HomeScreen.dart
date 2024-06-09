@@ -1,5 +1,4 @@
-import 'package:client_app/Pages/Favourites_page.dart';
-import 'package:client_app/Pages/search_page.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -8,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import '../Models/Fournisseur.dart';
 import '../Models/dish.dart';
 import 'Cart_Page.dart';
+import 'Favourites_page.dart';
 import 'dish_details.dart';
 import 'fournisseur_details.dart';
 

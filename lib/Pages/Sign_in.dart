@@ -1,8 +1,8 @@
-import 'package:client_app/Pages/Register.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../services/ClientService.dart';
+import 'Register.dart';
 
 class SignInScreen extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();

@@ -1,6 +1,6 @@
-import 'package:client_app/Pages/Sign_in.dart';
-import 'package:client_app/services/ClientAuth.dart';
-import 'package:client_app/services/ClientService.dart';
+
+import 'package:dish_list/services/ClientAuth.dart';
+import 'package:dish_list/services/ClientService.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +11,7 @@ import 'Pages/Changepassword.dart';
 import 'Pages/ForgotPassword.dart';
 import 'Pages/ModifyProfile.dart';
 import 'Pages/Register.dart';
+import 'Pages/Sign_in.dart';
 import 'firebase_options.dart';
 
 void main() async {

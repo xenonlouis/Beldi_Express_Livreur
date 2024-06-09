@@ -1,7 +1,8 @@
-import 'package:client_app/Models/dish.dart';
-import 'package:client_app/services/firestore.dart';
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '../Models/dish.dart';
+import '../services/firestore.dart';
 import 'dish_details.dart';
 
 class FavouritePage extends StatefulWidget {
